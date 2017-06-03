@@ -35,7 +35,6 @@ public class SwordsmenNetwork : NetworkBehaviour
     [ClientRpc]
     private void RpcPlayAnimation(string animation)
     {
-        _swordsmenCharacter.PlayAnimation(animation);
     }
 
     public void StopAnimation(string animationName)
@@ -52,7 +51,6 @@ public class SwordsmenNetwork : NetworkBehaviour
     [ClientRpc]
     private void RpcStopAnimation(string animation)
     {
-        _swordsmenCharacter.StopAnimation(animation);
     }
 
     public void Flip(bool value)

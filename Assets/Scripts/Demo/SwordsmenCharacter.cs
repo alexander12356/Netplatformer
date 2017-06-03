@@ -1,9 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-using DragonBones;
-using System;
+using UnityEngine;
 
 public enum CharacterDirection
 {
@@ -19,8 +18,7 @@ public enum CharacterState
 
 public class SwordsmenCharacter : MonoBehaviour
 {
-    private CharacterState _characterState;
-    private UnityArmatureComponent _unityArmatureComponent;
+    private CharacterState _characterState;    
     private Rigidbody2D _rigidBody2d;
     private bool _isGrounded = false;
     private SwordsmenNetwork _swordsmenNetwork;
@@ -41,7 +39,6 @@ public class SwordsmenCharacter : MonoBehaviour
 
     private void Awake()
     {
-        _unityArmatureComponent = GetComponent<UnityArmatureComponent>();
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _swordsmenNetwork = GetComponent<SwordsmenNetwork>();
     }
@@ -108,16 +105,6 @@ public class SwordsmenCharacter : MonoBehaviour
         }
     }
 
-    public void PlayAnimation(string id)
-    {
-        _unityArmatureComponent.animation.Play(id);
-    }
-
-    public void StopAnimation(string id)
-    {
-        _unityArmatureComponent.animation.Stop(id);
-    }
-
     private void ChangeState(CharacterState characterState)
     {
         _characterState = characterState;
@@ -133,6 +120,5 @@ public class SwordsmenCharacter : MonoBehaviour
 
     public void ChangeFlip(bool value)
     {
-        _unityArmatureComponent.armature.flipX = value;
     }
 }
