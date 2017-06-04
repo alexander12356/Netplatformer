@@ -9,48 +9,44 @@ public class ControlSystem : MonoBehaviour
     public event Action<KeyCode> OnGetKeyDown;
     public event Action<float> OnGetAxis;
 
+    public event Action<int> OnMouseButtonDown;
+
     private void Update()
     {
         UpdateMovingControl();
+        UpdateCombatControl();
+    }
+
+    private void UpdateCombatControl()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnMouseButtonDown?.Invoke(0);
+        }
     }
 
     private void UpdateMovingControl()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            if (OnGetKey != null)
-            {
-                OnGetKey.Invoke(KeyCode.D);
-            }
+            OnGetKey?.Invoke(KeyCode.D);
         }
 
         if (Input.GetKeyUp(KeyCode.D))
         {
-            if (OnGetKeyUp != null)
-            {
-                OnGetKeyUp.Invoke(KeyCode.D);
-            }
+            OnGetKeyUp?.Invoke(KeyCode.D);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (OnGetKey != null)
-            {
-                OnGetKey.Invoke(KeyCode.A);
-            }
+            OnGetKey?.Invoke(KeyCode.A);
         }
 
         if (Input.GetKeyUp(KeyCode.A))
         {
-            if (OnGetKeyUp != null)
-            {
-                OnGetKeyUp.Invoke(KeyCode.A);
-            }
+            OnGetKeyUp?.Invoke(KeyCode.A);
         }
-
-        if (OnGetAxis != null)
-        {
-            OnGetAxis.Invoke(Input.GetAxis("GameHorizontal"));
-        }
+        
+        OnGetAxis?.Invoke(Input.GetAxis("GameHorizontal"));
     }
 }
