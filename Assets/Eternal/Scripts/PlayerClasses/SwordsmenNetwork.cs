@@ -3,19 +3,19 @@ using UnityEngine.Networking;
 
 public class SwordsmenNetwork : NetworkBehaviour
 {
-    private SwordsmenCharacter _swordsmenCharacter;
+    private ControlSystem _contolSystem;
 
     [SerializeField]
     private FollowCamera FollowCameraPrefab;
 
     public void Awake()
     {
-        _swordsmenCharacter = GetComponent<SwordsmenCharacter>();
+        _contolSystem = GetComponent<ControlSystem>();
     }
 
     public override void OnStartLocalPlayer()
     {
-        GetComponent<SwordsmenCharacter>().enabled = true;
+        GetComponent<ControlSystem>().enabled = true;
 
         var followCamera = Instantiate(FollowCameraPrefab);
         followCamera.target = transform;
@@ -67,6 +67,6 @@ public class SwordsmenNetwork : NetworkBehaviour
     [ClientRpc]
     public void RpcFlip(bool value)
     {
-        _swordsmenCharacter.ChangeFlip(value);
+        //_swordsmenCharacter.ChangeFlip(value);
     }
 }
