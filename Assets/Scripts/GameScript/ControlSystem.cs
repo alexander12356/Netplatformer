@@ -4,42 +4,53 @@ using UnityEngine;
 using System;
 public class ControlSystem : MonoBehaviour
 {
-    public event Action<float> OnMove;
-    public event Action<AnimatorSystem.AnimationType> OnAnimate;
-    private void Start()
-    {
-
-    }
+    public event Action<KeyCode> OnGetKey;
+    public event Action<KeyCode> OnGetKeyUp;
+    public event Action<KeyCode> OnGetKeyDown;
+    public event Action<float> OnGetAxis;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        UpdateMovingControl();
+    }
+
+    private void UpdateMovingControl()
+    {
+        if (Input.GetKey(KeyCode.D))
         {
-            if (OnAnimate != null)
+            if (OnGetKey != null)
             {
-                OnAnimate.Invoke(AnimatorSystem.AnimationType.WALK);
+                OnGetKey.Invoke(KeyCode.D);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.D))
         {
-            if (OnAnimate != null)
+            if (OnGetKeyUp != null)
             {
-                OnAnimate.Invoke(AnimatorSystem.AnimationType.WALK);
+                OnGetKeyUp.Invoke(KeyCode.D);
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            if (OnAnimate != null)
+            if (OnGetKey != null)
             {
-                OnAnimate.Invoke(AnimatorSystem.AnimationType.IDLE);
+                OnGetKey.Invoke(KeyCode.A);
             }
         }
 
-        if (OnMove != null)
+        if (Input.GetKeyUp(KeyCode.A))
         {
-            OnMove.Invoke(Input.GetAxis("Horizontal"));
+            if (OnGetKeyUp != null)
+            {
+                OnGetKeyUp.Invoke(KeyCode.A);
+            }
+        }
+
+        if (OnGetAxis != null)
+        {
+            OnGetAxis.Invoke(Input.GetAxis("GameHorizontal"));
         }
     }
 }

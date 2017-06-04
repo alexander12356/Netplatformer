@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterCompositor : MonoBehaviour {
+public class CharacterCompositor : MonoBehaviour
+{
+	public void Start ()
+    {
+        var animatorSystem = GetComponent<AnimatorSystem>();
+        var movementSystem = GetComponent<MovementSystem>();
+        var controlSystem = GetComponent<ControlSystem>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        controlSystem.OnGetAxis += movementSystem.Move;
+        controlSystem.OnGetKey += animatorSystem.AnimationStart;
+        controlSystem.OnGetKeyUp += animatorSystem.AnimationStop;
+    }
 }
