@@ -298,3 +298,115 @@ Exit code: 0
 Elapsed time: 0.06 sec
 
 - pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Saturday, 10 June 2017 16:02:00                        *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Mac
+Target assembly: Assembly-CSharp.dll
+Project directory: /Users/weekendgames/Desktop/Unity Projects/NetPlatformer
+Target profile directory: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity
+Unity 'Data' or 'Frameworks' directory: /Applications/Unity/Unity.app/Contents
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: /Library/Frameworks/Mono.framework/Commands/mono
+Arguments: "/Users/weekendgames/Desktop/Unity Projects/NetPlatformer/CSharp70Support/Roslyn/csc.exe" -nostdlib+ -noconfig -nologo -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/mscorlib.dll" -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.dll" -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Core.dll" -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.dll" @Temp/UnityTempFile-b0685ed99837d4ed79fceff3d3f9f1a0 -debug:portable
+Exit code: 0
+Elapsed time: 6.67 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (8 lines):
+0: Assets/Eternal/Scripts/PlayerClasses/SwordsmenNetwork.cs(9,26): warning CS0649: Field 'SwordsmenNetwork.FollowCameraPrefab' is never assigned to, and will always have its default value null
+1: Assets/Eternal/Scripts/NetworkManagerSample.cs(11,37): warning CS0649: Field 'NetworkManagerSample._characterPrefab' is never assigned to, and will always have its default value null
+2: Assets/Anima2D/Examples/Scripts/SkinnedMeshCombiner.cs(8,23): warning CS0649: Field 'SkinnedMeshCombiner.m_SpriteMeshInstances' is never assigned to, and will always have its default value null
+3: Assets/Eternal/Scripts/PlayerClasses/ControlSystem.cs(9,34): warning CS0067: The event 'ControlSystem.OnGetKeyDown' is never used
+4: Assets/Anima2D/Scripts/SpriteMesh.cs(17,10): warning CS0649: Field 'SpriteMesh.m_Sprite' is never assigned to, and will always have its default value null
+5: Assets/Anima2D/Scripts/SpriteMesh.cs(20,8): warning CS0649: Field 'SpriteMesh.m_SharedMesh' is never assigned to, and will always have its default value null
+6: Assets/Anima2D/Scripts/SpriteMesh.cs(23,14): warning CS0649: Field 'SpriteMesh.m_SharedMaterials' is never assigned to, and will always have its default value null
+7: Assets/Eternal/Scripts/PlayerClasses/MovementSystem.cs(16,19): warning CS0649: Field 'MovementSystem.Speed' is never assigned to, and will always have its default value 0
+
+PDB to MDB conversion skipped
+File "Temp/Assembly-CSharp.pdb" deleted
+********************************************************************************
+*                       Saturday, 10 June 2017 16:02:08                        *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Mac
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: /Users/weekendgames/Desktop/Unity Projects/NetPlatformer
+Target profile directory: /Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api
+Unity 'Data' or 'Frameworks' directory: /Applications/Unity/Unity.app/Contents
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: /Library/Frameworks/Mono.framework/Commands/mono
+Arguments: "/Users/weekendgames/Desktop/Unity Projects/NetPlatformer/CSharp70Support/Roslyn/csc.exe" -nostdlib+ -noconfig -nologo -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll" -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.dll" -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Core.dll" -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.dll" @Temp/UnityTempFile-438682cb6d8dd440291a5fda1ea70e64 -debug:portable
+Exit code: 0
+Elapsed time: 5.77 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+PDB to MDB conversion skipped
+File "Temp/Assembly-CSharp-Editor.pdb" deleted
+********************************************************************************
+*                       Saturday, 10 June 2017 16:02:19                        *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Mac
+Target assembly: Assembly-CSharp.dll
+Project directory: /Users/weekendgames/Desktop/Unity Projects/NetPlatformer
+Target profile directory: /Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity
+Unity 'Data' or 'Frameworks' directory: /Applications/Unity/Unity.app/Contents
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: /Library/Frameworks/Mono.framework/Commands/mono
+Arguments: "/Users/weekendgames/Desktop/Unity Projects/NetPlatformer/CSharp70Support/Roslyn/csc.exe" -nostdlib+ -noconfig -nologo -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/mscorlib.dll" -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.dll" -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Core.dll" -r:"/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.dll" @Temp/UnityTempFile-51cbc36ff529644d08c39cc512fc69f4 -debug:portable
+Exit code: 0
+Elapsed time: 7.38 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (8 lines):
+0: Assets/Anima2D/Scripts/SpriteMesh.cs(17,10): warning CS0649: Field 'SpriteMesh.m_Sprite' is never assigned to, and will always have its default value null
+1: Assets/Anima2D/Examples/Scripts/SkinnedMeshCombiner.cs(8,23): warning CS0649: Field 'SkinnedMeshCombiner.m_SpriteMeshInstances' is never assigned to, and will always have its default value null
+2: Assets/Eternal/Scripts/PlayerClasses/ControlSystem.cs(9,34): warning CS0067: The event 'ControlSystem.OnGetKeyDown' is never used
+3: Assets/Anima2D/Scripts/SpriteMesh.cs(20,8): warning CS0649: Field 'SpriteMesh.m_SharedMesh' is never assigned to, and will always have its default value null
+4: Assets/Eternal/Scripts/PlayerClasses/SwordsmenNetwork.cs(9,26): warning CS0649: Field 'SwordsmenNetwork.FollowCameraPrefab' is never assigned to, and will always have its default value null
+5: Assets/Eternal/Scripts/NetworkManagerSample.cs(11,37): warning CS0649: Field 'NetworkManagerSample._characterPrefab' is never assigned to, and will always have its default value null
+6: Assets/Anima2D/Scripts/SpriteMesh.cs(23,14): warning CS0649: Field 'SpriteMesh.m_SharedMaterials' is never assigned to, and will always have its default value null
+7: Assets/Eternal/Scripts/PlayerClasses/MovementSystem.cs(16,19): warning CS0649: Field 'MovementSystem.Speed' is never assigned to, and will always have its default value 0
+
+PDB to MDB conversion skipped
+File "Temp/Assembly-CSharp.pdb" deleted
+********************************************************************************
+*                       Saturday, 10 June 2017 16:02:28                        *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Mac
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: /Users/weekendgames/Desktop/Unity Projects/NetPlatformer
+Target profile directory: /Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api
+Unity 'Data' or 'Frameworks' directory: /Applications/Unity/Unity.app/Contents
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: /Library/Frameworks/Mono.framework/Commands/mono
+Arguments: "/Users/weekendgames/Desktop/Unity Projects/NetPlatformer/CSharp70Support/Roslyn/csc.exe" -nostdlib+ -noconfig -nologo -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll" -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.dll" -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Core.dll" -r:"/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.dll" @Temp/UnityTempFile-4a76af8cec646463ab658e76f78d9954 -debug:portable
+Exit code: 0
+Elapsed time: 6.48 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+PDB to MDB conversion skipped
+File "Temp/Assembly-CSharp-Editor.pdb" deleted
