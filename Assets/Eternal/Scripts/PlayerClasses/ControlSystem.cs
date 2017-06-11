@@ -4,12 +4,14 @@ using UnityEngine;
 using System;
 public class ControlSystem : MonoBehaviour
 {
-    public event Action<KeyCode> OnGetKey;
-    public event Action<KeyCode> OnGetKeyUp;
-    public event Action<KeyCode> OnGetKeyDown;
-    public event Action<float> OnGetAxis;
+    public event Action OnLeftKeyPress;
+    public event Action OnLeftKeyUp;
+    public event Action OnRightKeyPress;
+    public event Action OnRightKeyUp;
+    public event Action OnJumpKeyDown;
+    public event Action OnAttackKeyDown;
 
-    public event Action<int> OnMouseButtonDown;
+    public event Action<float> OnGetAxis;
 
     private void Update()
     {
@@ -21,7 +23,7 @@ public class ControlSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnMouseButtonDown?.Invoke(0);
+            OnAttackKeyDown?.Invoke();
         }
     }
 
@@ -29,22 +31,27 @@ public class ControlSystem : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            OnGetKey?.Invoke(KeyCode.D);
+            OnRightKeyPress?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.D))
         {
-            OnGetKeyUp?.Invoke(KeyCode.D);
+            OnRightKeyUp?.Invoke();
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            OnGetKey?.Invoke(KeyCode.A);
+            OnLeftKeyPress?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.A))
         {
-            OnGetKeyUp?.Invoke(KeyCode.A);
+            OnLeftKeyUp?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnJumpKeyDown?.Invoke();
         }
         
         OnGetAxis?.Invoke(Input.GetAxis("GameHorizontal"));

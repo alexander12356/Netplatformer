@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 
 public class MovementSystem : MonoBehaviour
 {
@@ -13,9 +15,15 @@ public class MovementSystem : MonoBehaviour
     private Direction _currentDirection = Direction.Right;
 
     [SerializeField]
-    private float Speed;
+    private float Speed = 0.0f;
 
-	private void Awake ()
+    [SerializeField]
+    private float JumpForce = 0.0f;
+
+    public event Action<CharacterState.State> OnChangeState;
+
+
+    private void Awake ()
     {
         _rigidBody2d = GetComponent<Rigidbody2D>();	
 	}
@@ -24,11 +32,23 @@ public class MovementSystem : MonoBehaviour
     {
         _moveValue = vector;
         CheckDirection();
+
+        OnChangeState?.Invoke(CharacterState.State.Moving);
+    }
+
+    public void Jump()
+    {
+        _rigidBody2d.AddForce(Vector2.up * JumpForce);
     }
 
     private void Update ()
     {
         _rigidBody2d.velocity = new Vector2(_moveValue * Speed, _rigidBody2d.velocity.y);
+
+        if (_moveValue == 0.0f)
+        {
+            OnChangeState?.Invoke(CharacterState.State.Idle);
+        }
     }
 
     private void CheckDirection()

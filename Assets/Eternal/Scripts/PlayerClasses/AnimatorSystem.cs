@@ -10,35 +10,18 @@ public class AnimatorSystem : MonoBehaviour
         _animator = GetComponent<Animator>();
 	}
 	
-	public void AnimationStart(KeyCode keyCode)
+    public void PlayMovingAnimation()
     {
-        var animationId = GetAnimationId(keyCode);
-        _animator.SetBool(animationId, true);
+        _animator.SetBool("Moving", true);
     }
 
-    public void AnimationStop(KeyCode keyCode)
+    public void StopMovingAnimation()
     {
-        var animationId = GetAnimationId(keyCode);
-        _animator.SetBool(animationId, false);
+        _animator.SetBool("Moving", false);
     }
 
     public void AnimationSetTrigger(string animationId)
     {
         _animator.SetTrigger(animationId);
-    }
-
-    private string GetAnimationId(KeyCode keyCode)
-    {
-        switch (keyCode)
-        {
-            case KeyCode.A:
-                return "Moving";
-            case KeyCode.D:
-                return "Moving";
-            case KeyCode.Space:
-                return "Jump";
-            default:
-                return string.Empty;
-        }
     }
 }
