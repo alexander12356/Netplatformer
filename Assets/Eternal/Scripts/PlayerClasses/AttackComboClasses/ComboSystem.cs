@@ -26,21 +26,22 @@ public class ComboSystem : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void LightAttack()
     {
         for (int i = 0; i < _comboList.Count; i++)
         {
-            switch (_comboList[i].characterState)
-            {
-                case CharacterState.State.Moving:
-                    break;
-                case CharacterState.State.Idle:
-                    break;
-                case CharacterState.State.Attack:
-                    break;
-                default:
-                    break;
-            }
+            //if 
         }
+        OnSetAnimationTrigger?.Invoke("LightAttack_1");
+    }
+
+    public void HeavyAttack()
+    {
+        OnSetAnimationTrigger?.Invoke("HeavyAttack");
+    }
+
+    public void CanAttack()
+    {
+
     }
 }

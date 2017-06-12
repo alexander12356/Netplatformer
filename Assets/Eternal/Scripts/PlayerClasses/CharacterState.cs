@@ -33,7 +33,8 @@ public class CharacterState : MonoBehaviour
         controlSystem.OnLeftKeyUp += animatorSystem.StopMovingAnimation;
         controlSystem.OnRightKeyPress += animatorSystem.PlayMovingAnimation;
         controlSystem.OnRightKeyUp += animatorSystem.StopMovingAnimation;
-        controlSystem.OnAttackKeyDown += combatSystem.Attack;
+        controlSystem.OnLightAttackKeyDown += combatSystem.LightAttack;
+        controlSystem.OnHeavyAttackKeyDown += combatSystem.HeavyAttack;
         controlSystem.OnJumpKeyDown += movementSystem.Jump;
 
         combatSystem.OnSetAnimationTrigger += animatorSystem.AnimationSetTrigger;

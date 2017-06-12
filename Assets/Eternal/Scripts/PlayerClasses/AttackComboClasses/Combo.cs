@@ -6,7 +6,8 @@ using UnityEngine;
 public struct ComboParam
 {
     public string AnimationId;
-    public float Time;
+    public float breakTime;
+    public float canAttackTime;
 }
 
 public class Combo : MonoBehaviour
@@ -15,5 +16,15 @@ public class Combo : MonoBehaviour
     private string Id;
 
     [SerializeField]
-    private List<ComboParam> ComboSimpleAttack;
+    private List<ComboParam> ComboSimpleAttack = new List<ComboParam>();
+
+    public void Punch()
+    {
+
+    }
+
+    public void Update()
+    {
+
+    }
 }

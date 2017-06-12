@@ -9,7 +9,8 @@ public class ControlSystem : MonoBehaviour
     public event Action OnRightKeyPress;
     public event Action OnRightKeyUp;
     public event Action OnJumpKeyDown;
-    public event Action OnAttackKeyDown;
+    public event Action OnLightAttackKeyDown;
+    public event Action OnHeavyAttackKeyDown;
 
     public event Action<float> OnGetAxis;
 
@@ -23,7 +24,12 @@ public class ControlSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnAttackKeyDown?.Invoke();
+            OnLightAttackKeyDown?.Invoke();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            OnHeavyAttackKeyDown?.Invoke();
         }
     }
 
