@@ -4,12 +4,13 @@ public class CharacterState : MonoBehaviour
 {
     public enum State
     {
+        NONE = -1,
         Moving,
         Idle,
         Attack
     }
 
-    private State _currentState;
+    private State _currentState = State.Idle;
 
     public State CurrentState
     {
@@ -38,5 +39,6 @@ public class CharacterState : MonoBehaviour
         controlSystem.OnJumpKeyDown += movementSystem.Jump;
 
         combatSystem.OnSetAnimationTrigger += animatorSystem.AnimationSetTrigger;
+        combatSystem.CharacterState = this;
     }
 }

@@ -7,16 +7,17 @@ using UnityEngine;
 public struct ComboList
 {
     public CharacterState.State characterState;
-    public Combo combo;
+    public ComboTreeNode comboTreeNode;
 }
 
 public class ComboSystem : MonoBehaviour
 {
     public event Action<string> OnSetAnimationTrigger;
-    public CharacterState _characterState;
+    public List<ComboList> ComboTrees;
 
-    [SerializeField]
-    private List<ComboList> _comboList;
+    private CharacterState.State _prevState = CharacterState.State.NONE;
+    private ComboTreeNode _currentComboTreeNode;
+    private CharacterState _characterState;
 
     public CharacterState CharacterState
     {
@@ -28,20 +29,61 @@ public class ComboSystem : MonoBehaviour
 
     public void LightAttack()
     {
-        for (int i = 0; i < _comboList.Count; i++)
+        InitComboTreeNode();
+
+        if (_currentComboTreeNode.LightAttack != null)
         {
-            //if 
+            OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.LightAttack.AnimationId);
+            _currentComboTreeNode = _currentComboTreeNode.LightAttack;
         }
-        OnSetAnimationTrigger?.Invoke("LightAttack_1");
+        else
+        {
+            _currentComboTreeNode = null;
+        }
     }
 
     public void HeavyAttack()
     {
-        OnSetAnimationTrigger?.Invoke("HeavyAttack");
+        InitComboTreeNode();
+
+        if (_currentComboTreeNode.HeavyAttack != null)
+        {
+            OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.HeavyAttack.AnimationId);
+            _currentComboTreeNode = _currentComboTreeNode.HeavyAttack;
+        }
+        else
+        {
+            _currentComboTreeNode = null;
+        }
     }
 
-    public void CanAttack()
+    private void InitComboTreeNode()
     {
+        var currentState = _characterState.CurrentState;
 
+        if (_currentComboTreeNode != null)
+        {
+            if (currentState != _prevState)
+            {
+                _currentComboTreeNode = GetComboRoot(currentState);
+            }
+        }
+        else
+        {
+            _currentComboTreeNode = GetComboRoot(currentState);
+        }
+        _prevState = currentState;
+    }
+
+    private ComboTreeNode GetComboRoot(CharacterState.State currentState)
+    {
+        for (int i = 0; i < ComboTrees.Count; i++)
+        {
+            if (ComboTrees[i].characterState == currentState)
+            {
+                return ComboTrees[i].comboTreeNode;
+            }
+        }
+        return null;
     }
 }
