@@ -32,8 +32,6 @@ public class MovementSystem : MonoBehaviour
     {
         _moveValue = vector;
         CheckDirection();
-
-        OnChangeState?.Invoke(CharacterState.State.Moving);
     }
 
     public void Jump()
@@ -48,6 +46,10 @@ public class MovementSystem : MonoBehaviour
         if (_moveValue == 0.0f)
         {
             OnChangeState?.Invoke(CharacterState.State.Idle);
+        }
+        else
+        {
+            OnChangeState?.Invoke(CharacterState.State.Moving);
         }
     }
 

@@ -10,6 +10,7 @@ public class CharacterState : MonoBehaviour
         Attack
     }
 
+    [SerializeField]
     private State _currentState = State.Idle;
 
     public State CurrentState
@@ -40,5 +41,7 @@ public class CharacterState : MonoBehaviour
 
         combatSystem.OnSetAnimationTrigger += animatorSystem.AnimationSetTrigger;
         combatSystem.CharacterState = this;
+
+        movementSystem.OnChangeState += ChangeState;
     }
 }
