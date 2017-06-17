@@ -30,8 +30,8 @@ namespace CharacterSystem
 
         public void PlayFatality(GameObject winner, GameObject loser, Transform holderParent = null)
         {
-            CharacterCompositor winnerCharacter = winner.GetComponent<CharacterCompositor>(); //TODO взять другой класс
-            CharacterCompositor loserCharacter = loser.GetComponent<CharacterCompositor>();
+            //CharacterCompositor winnerCharacter = winner.GetComponent<CharacterCompositor>(); //TODO взять другой класс
+            //CharacterCompositor loserCharacter = loser.GetComponent<CharacterCompositor>();
 			
             if (holderParent != null)
 				fatalityAnimator.gameObject.transform.SetParent(holderParent, false);
