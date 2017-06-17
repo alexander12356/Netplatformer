@@ -17,14 +17,21 @@ public class ComboSystem : MonoBehaviour
     [Header("For Debug")]
     [SerializeField]
     private ComboTreeNode _currentComboTreeNode;
+    [SerializeField]
+    private float _comboResetTime;
+    [SerializeField]
+    private float _timerForResetCombo;
+    [SerializeField]
+    private float _canAttackTime;
+    [SerializeField]
+    private float _timerForCanAttack;
 
-    [Header("Property")]
-    public float ComboResetTime;
+    [Header("Properties")]
     public List<ComboList> ComboTrees;
     
-    private float _timerForResetCombo;
     private CharacterState.State _prevState = CharacterState.State.NONE;
     private CharacterState _characterState;
+    private bool _isCanAttack = true;
 
     public CharacterState CharacterState
     {
@@ -36,13 +43,16 @@ public class ComboSystem : MonoBehaviour
 
     public void LightAttack()
     {
+        if (!_isCanAttack)
+        {
+            return;
+        }
+
         InitComboTreeNode();
 
         if (_currentComboTreeNode.LightAttack != null)
         {
-            OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.LightAttack.AnimationId);
-            _currentComboTreeNode = _currentComboTreeNode.LightAttack;
-            _timerForResetCombo = 0.0f;
+            Punch(_currentComboTreeNode.LightAttack);
         }
         else
         {
@@ -52,13 +62,16 @@ public class ComboSystem : MonoBehaviour
 
     public void HeavyAttack()
     {
+        if (!_isCanAttack)
+        {
+            return;
+        }
+
         InitComboTreeNode();
 
         if (_currentComboTreeNode.HeavyAttack != null)
         {
-            OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.HeavyAttack.AnimationId);
-            _currentComboTreeNode = _currentComboTreeNode.HeavyAttack;
-            _timerForResetCombo = 0.0f;
+            Punch(_currentComboTreeNode.HeavyAttack);
         }
         else
         {
@@ -100,7 +113,7 @@ public class ComboSystem : MonoBehaviour
     {
         if (_currentComboTreeNode != null)
         {
-            if (_timerForResetCombo < ComboResetTime)
+            if (_timerForResetCombo < _comboResetTime)
             {
                 _timerForResetCombo += Time.deltaTime;
             }
@@ -108,7 +121,30 @@ public class ComboSystem : MonoBehaviour
             {
                 _timerForResetCombo = 0.0f;
                 _currentComboTreeNode = null;
+            }    
+        }
+
+        if (!_isCanAttack)
+        {
+            if (_timerForCanAttack < _canAttackTime)
+            {
+                _timerForCanAttack += Time.deltaTime;
+            }
+            else
+            {
+                _timerForCanAttack = 0.0f;
+                _isCanAttack = true;
             }
         }
+    }
+
+    private void Punch(ComboTreeNode treeNode)
+    {
+        OnSetAnimationTrigger?.Invoke(treeNode.AnimationId);
+        _currentComboTreeNode = treeNode;
+        _timerForResetCombo = 0.0f;
+        _comboResetTime = _currentComboTreeNode.resetComboTime;
+        _canAttackTime = _currentComboTreeNode.canAttackTime;
+        _isCanAttack = false;
     }
 }
