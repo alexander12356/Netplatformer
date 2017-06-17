@@ -141,10 +141,11 @@ public class ComboSystem : MonoBehaviour
     private void Punch(ComboTreeNode treeNode)
     {
         OnSetAnimationTrigger?.Invoke(treeNode.AnimationId);
+        treeNode.StartComboEvent?.Invoke();
         _currentComboTreeNode = treeNode;
         _timerForResetCombo = 0.0f;
-        _comboResetTime = _currentComboTreeNode.resetComboTime;
-        _canAttackTime = _currentComboTreeNode.canAttackTime;
+        _comboResetTime = _currentComboTreeNode.ResetComboTime;
+        _canAttackTime = _currentComboTreeNode.CanAttackTime;
         _isCanAttack = false;
     }
 }
