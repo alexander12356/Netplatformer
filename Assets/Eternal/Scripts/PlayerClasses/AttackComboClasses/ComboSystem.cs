@@ -13,10 +13,17 @@ public struct ComboList
 public class ComboSystem : MonoBehaviour
 {
     public event Action<string> OnSetAnimationTrigger;
-    public List<ComboList> ComboTrees;
 
-    private CharacterState.State _prevState = CharacterState.State.NONE;
+    [Header("For Debug")]
+    [SerializeField]
     private ComboTreeNode _currentComboTreeNode;
+
+    [Header("Property")]
+    public float ComboResetTime;
+    public List<ComboList> ComboTrees;
+    
+    private float _timerForResetCombo;
+    private CharacterState.State _prevState = CharacterState.State.NONE;
     private CharacterState _characterState;
 
     public CharacterState CharacterState
@@ -35,6 +42,7 @@ public class ComboSystem : MonoBehaviour
         {
             OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.LightAttack.AnimationId);
             _currentComboTreeNode = _currentComboTreeNode.LightAttack;
+            _timerForResetCombo = 0.0f;
         }
         else
         {
@@ -50,6 +58,7 @@ public class ComboSystem : MonoBehaviour
         {
             OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.HeavyAttack.AnimationId);
             _currentComboTreeNode = _currentComboTreeNode.HeavyAttack;
+            _timerForResetCombo = 0.0f;
         }
         else
         {
@@ -85,5 +94,21 @@ public class ComboSystem : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void Update()
+    {
+        if (_currentComboTreeNode != null)
+        {
+            if (_timerForResetCombo < ComboResetTime)
+            {
+                _timerForResetCombo += Time.deltaTime;
+            }
+            else
+            {
+                _timerForResetCombo = 0.0f;
+                _currentComboTreeNode = null;
+            }
+        }
     }
 }
