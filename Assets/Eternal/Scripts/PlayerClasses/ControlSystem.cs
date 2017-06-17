@@ -4,53 +4,62 @@ using UnityEngine;
 using System;
 public class ControlSystem : MonoBehaviour
 {
-    public event Action<KeyCode> OnGetKey;
-    public event Action<KeyCode> OnGetKeyUp;
-    public event Action<KeyCode> OnGetKeyDown;
+    public event Action OnLeftKeyPress;
+    public event Action OnLeftKeyUp;
+    public event Action OnRightKeyPress;
+    public event Action OnRightKeyUp;
+    public event Action OnJumpKeyDown;
+    public event Action OnLightAttackKeyDown;
+    public event Action OnHeavyAttackKeyDown;
+
     public event Action<float> OnGetAxis;
 
     private void Update()
     {
         UpdateMovingControl();
+        UpdateCombatControl();
+    }
+
+    private void UpdateCombatControl()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnLightAttackKeyDown?.Invoke();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            OnHeavyAttackKeyDown?.Invoke();
+        }
     }
 
     private void UpdateMovingControl()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            if (OnGetKey != null)
-            {
-                OnGetKey.Invoke(KeyCode.D);
-            }
+            OnRightKeyPress?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.D))
         {
-            if (OnGetKeyUp != null)
-            {
-                OnGetKeyUp.Invoke(KeyCode.D);
-            }
+            OnRightKeyUp?.Invoke();
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (OnGetKey != null)
-            {
-                OnGetKey.Invoke(KeyCode.A);
-            }
+            OnLeftKeyPress?.Invoke();
         }
 
         if (Input.GetKeyUp(KeyCode.A))
         {
-            if (OnGetKeyUp != null)
-            {
-                OnGetKeyUp.Invoke(KeyCode.A);
-            }
+            OnLeftKeyUp?.Invoke();
         }
 
-        if (OnGetAxis != null)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnGetAxis.Invoke(Input.GetAxis("GameHorizontal"));
+            OnJumpKeyDown?.Invoke();
         }
+        
+        OnGetAxis?.Invoke(Input.GetAxis("GameHorizontal"));
     }
 }

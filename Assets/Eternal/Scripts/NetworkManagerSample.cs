@@ -8,7 +8,7 @@ namespace Eternal
         public UnetGameRoom GameRoom;
 
         [SerializeField]
-        private CharacterCompositor _characterPrefab;
+        private CharacterState _characterPrefab;
 
         public Transform newPlayerPositionTransform;
 
@@ -41,7 +41,7 @@ namespace Eternal
 
         }
 
-        public CharacterCompositor SpawnPlayer(NetworkConnection connection)
+        public CharacterState SpawnPlayer(NetworkConnection connection)
         {
             var player = Instantiate(_characterPrefab);
 
