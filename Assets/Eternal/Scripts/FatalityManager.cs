@@ -8,8 +8,8 @@ namespace CharacterSystem
     {
         private static FatalityManager m_Instance;
 
-        public GameObject fatalityAnimator;
-        Animator m_Animator = new Animator();
+        public GameObject FatalityAnimator;
+        Animator _animator = new Animator();
 
         public static FatalityManager Instance()
         {
@@ -30,23 +30,40 @@ namespace CharacterSystem
 
         public void PlayFatality(GameObject winner, GameObject loser, Transform holderParent = null)
         {
-            //CharacterCompositor winnerCharacter = winner.GetComponent<CharacterCompositor>(); //TODO взять другой класс
-            //CharacterCompositor loserCharacter = loser.GetComponent<CharacterCompositor>();
-			
-            if (holderParent != null)
-				fatalityAnimator.gameObject.transform.SetParent(holderParent, false);
-			
-			winner.transform.SetParent(fatalityAnimator.gameObject.transform, false);
-			loser.transform.SetParent(fatalityAnimator.gameObject.transform, false);
+            Debug.Log("Play fatality");
+            CharacterState winnerCharacter = winner.GetComponent<CharacterState>(); //TODO взять другой класс
+            CharacterState loserCharacter = loser.GetComponent<CharacterState>();
 
-            GameObject _delta = Instantiate(fatalityAnimator) as GameObject;
-            m_Animator = _delta.GetComponent <Animator > ();
-            m_Animator.SetTrigger("Fatality"); //TODO тип оружия
+            winnerCharacter.ChangeState(CharacterState.State.Fatality);
+            loserCharacter.ChangeState(CharacterState.State.Fatality);
+
+            if (holderParent != null)
+                FatalityAnimator.gameObject.transform.SetParent(holderParent, false);
+
+			GameObject _delta = Instantiate(FatalityAnimator) as GameObject;
+			_animator = _delta.GetComponent<Animator>();
+			_animator.SetTrigger("Fatality"); //TODO тип оружия
+
+            winner.transform.SetParent(_delta.gameObject.transform, false);
+            loser.transform.SetParent(_delta.gameObject.transform, false);
+
         }
 
         public void StopFatality()
         {
-            m_Animator.StopPlayback();
+            _animator.StopPlayback();
         }
+
+        #region for test
+        public GameObject winner;
+        public GameObject loser;
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.E)){
+                PlayFatality(winner, loser);
+            }
+        }
+        #endregion
     }
 }

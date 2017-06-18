@@ -7,7 +7,8 @@ public class CharacterState : MonoBehaviour
         NONE = -1,
         Moving,
         Idle,
-        Attack
+        Attack,
+        Fatality
     }
 
     [SerializeField]
