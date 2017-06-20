@@ -13,6 +13,7 @@ public class MovementSystem : MonoBehaviour
     private Rigidbody2D _rigidBody2d;
     private float _moveValue;
     private Direction _currentDirection = Direction.Right;
+    private bool _isMoving = true;
 
     [SerializeField]
     private float Speed = 0.0f;
@@ -41,6 +42,11 @@ public class MovementSystem : MonoBehaviour
 
     private void Update ()
     {
+        if (!_isMoving)
+        {
+            return;
+        }
+
         _rigidBody2d.velocity = new Vector2(_moveValue * Speed, _rigidBody2d.velocity.y);
 
         if (_moveValue == 0.0f)
@@ -72,5 +78,10 @@ public class MovementSystem : MonoBehaviour
         var scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public void CanMoving(bool value)
+    {
+        _isMoving = value;
     }
 }

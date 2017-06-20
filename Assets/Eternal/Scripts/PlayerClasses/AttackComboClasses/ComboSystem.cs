@@ -13,6 +13,11 @@ public struct ComboList
 public class ComboSystem : MonoBehaviour
 {
     public event Action<string> OnSetAnimationTrigger;
+    public enum AttackType
+    {
+        LightAttack,
+        HeavyAttack
+    }
 
     [Header("For Debug")]
     [SerializeField]
@@ -43,40 +48,12 @@ public class ComboSystem : MonoBehaviour
 
     public void LightAttack()
     {
-        if (!_isCanAttack)
-        {
-            return;
-        }
-
-        InitComboTreeNode();
-
-        if (_currentComboTreeNode.LightAttack != null)
-        {
-            Punch(_currentComboTreeNode.LightAttack);
-        }
-        else
-        {
-            _currentComboTreeNode = null;
-        }
+        Punch(AttackType.LightAttack);
     }
 
     public void HeavyAttack()
     {
-        if (!_isCanAttack)
-        {
-            return;
-        }
-
-        InitComboTreeNode();
-
-        if (_currentComboTreeNode.HeavyAttack != null)
-        {
-            Punch(_currentComboTreeNode.HeavyAttack);
-        }
-        else
-        {
-            _currentComboTreeNode = null;
-        }
+        Punch(AttackType.HeavyAttack);
     }
 
     private void InitComboTreeNode()
@@ -87,12 +64,12 @@ public class ComboSystem : MonoBehaviour
         {
             if (currentState != _prevState)
             {
-                _currentComboTreeNode = GetComboRoot(currentState);
+                ChangeCurrentComboTreeNode(GetComboRoot(currentState));
             }
         }
         else
         {
-            _currentComboTreeNode = GetComboRoot(currentState);
+            ChangeCurrentComboTreeNode(GetComboRoot(currentState));
         }
         _prevState = currentState;
     }
@@ -120,7 +97,7 @@ public class ComboSystem : MonoBehaviour
             else
             {
                 _timerForResetCombo = 0.0f;
-                _currentComboTreeNode = null;
+                ChangeCurrentComboTreeNode(null);
             }    
         }
 
@@ -138,12 +115,46 @@ public class ComboSystem : MonoBehaviour
         }
     }
 
-    private void Punch(ComboTreeNode treeNode)
+    private void Punch(AttackType attackType)
     {
-        OnSetAnimationTrigger?.Invoke(treeNode.AnimationId);
-        treeNode.StartComboEvent?.Invoke();
-        _currentComboTreeNode = treeNode;
+        if (!_isCanAttack)
+        {
+            return;
+        }
+
+        var currentState = _characterState.CurrentState;
+        if (_currentComboTreeNode == null || currentState != _prevState)
+        {
+            ChangeCurrentComboTreeNode(GetComboRoot(currentState));
+        }
+        _prevState = currentState;
+
+        switch (attackType)
+        {
+            case AttackType.LightAttack:
+                ChangeCurrentComboTreeNode(_currentComboTreeNode.LightAttack);
+                break;
+            case AttackType.HeavyAttack:
+                ChangeCurrentComboTreeNode(_currentComboTreeNode.HeavyAttack);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChangeCurrentComboTreeNode(ComboTreeNode newComboTreeNode)
+    {
         _timerForResetCombo = 0.0f;
+        _currentComboTreeNode?.EndComboEvent?.Invoke();
+
+        _currentComboTreeNode = newComboTreeNode;
+        if (_currentComboTreeNode == null)
+        {
+            return;
+        }
+        OnSetAnimationTrigger?.Invoke(_currentComboTreeNode.AnimationId);
+        _currentComboTreeNode?.StartComboEvent?.Invoke();
+        
         _comboResetTime = _currentComboTreeNode.ResetComboTime;
         _canAttackTime = _currentComboTreeNode.CanAttackTime;
         _isCanAttack = false;
