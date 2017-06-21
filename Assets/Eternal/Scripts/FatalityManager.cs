@@ -8,45 +8,34 @@ namespace CharacterSystem
     {
         private static FatalityManager m_Instance;
 
-        public GameObject FatalityAnimator;
-        Animator _animator = new Animator();
+        private Animator _animator = new Animator();
 
-        public static FatalityManager Instance()
+        public static FatalityManager instance
         {
-            return m_Instance;
+            get { return instance; }
         }
 
         private void Awake()
         {
-            if (m_Instance != null)
-            {
-                return;
-            }
-            else
-            {
-                m_Instance = this;
-            }
+            m_Instance = this;
+            _animator = GetComponent<Animator>();
         }
 
         public void PlayFatality(GameObject winner, GameObject loser, Transform holderParent = null)
         {
-            Debug.Log("Play fatality");
             CharacterState winnerCharacter = winner.GetComponent<CharacterState>(); //TODO взять другой класс
             CharacterState loserCharacter = loser.GetComponent<CharacterState>();
 
-            winnerCharacter.ChangeState(CharacterState.State.Fatality);
-            loserCharacter.ChangeState(CharacterState.State.Fatality);
+            //winnerCharacter.ChangeState(CharacterState.State.Fatality);
+            //loserCharacter.ChangeState(CharacterState.State.Fatality);
 
-            if (holderParent != null)
-                FatalityAnimator.gameObject.transform.SetParent(holderParent, false);
+            winnerCharacter.GetComponent<Animator>().enabled = false;
+            loserCharacter.GetComponent<Animator>().enabled = false;
 
-			GameObject _delta = Instantiate(FatalityAnimator) as GameObject;
-			_animator = _delta.GetComponent<Animator>();
-			_animator.SetTrigger("Fatality"); //TODO тип оружия
+            winner.transform.SetParent(transform);
+            loser.transform.SetParent(transform);
 
-            winner.transform.SetParent(_delta.gameObject.transform, false);
-            loser.transform.SetParent(_delta.gameObject.transform, false);
-
+            _animator.SetTrigger("Forwardstep"); //TODO тип оружия
         }
 
         public void StopFatality()
@@ -55,14 +44,14 @@ namespace CharacterSystem
         }
 
         #region for test
+        [Header("For test")]
         public GameObject winner;
         public GameObject loser;
 
-        private void Update()
+        [ContextMenu("PlayFatality")]
+        public void PlayFatality()
         {
-            if (Input.GetKeyDown(KeyCode.E)){
-                PlayFatality(winner, loser);
-            }
+            PlayFatality(winner, loser);
         }
         #endregion
     }
