@@ -34,7 +34,8 @@ namespace CharacterSystem
 
             winner.transform.SetParent(transform);
             loser.transform.SetParent(transform);
-
+            
+            _animator.Rebind();
             _animator.SetTrigger("Forwardstep"); //TODO тип оружия
         }
 
