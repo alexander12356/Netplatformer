@@ -1,0 +1,308 @@
+fileFormatVersion: 2
+guid: c0f38e31292634141aa50b8e4481f924
+timeCreated: 1498990854
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TestKnight_0
+    21300002: TestKnight_1
+    21300004: TestKnight_2
+    21300006: TestKnight_3
+    21300008: TestKnight_4
+    21300010: TestKnight_5
+    21300012: TestKnight_6
+    21300014: TestKnight_7
+    21300016: TestKnight_8
+    21300018: TestKnight_9
+    21300020: TestKnight_10
+    21300022: TestKnight_11
+    21300024: TestKnight_12
+    21300026: TestKnight_13
+    21300028: TestKnight_14
+    21300030: TestKnight_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TestKnight_0
+      rect:
+        serializedVersion: 2
+        x: 660.9838
+        y: 1535.8416
+        width: 252
+        height: 283
+      alignment: 9
+      pivot: {x: -0.7259128, y: 0.7876244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_1
+      rect:
+        serializedVersion: 2
+        x: 151.18729
+        y: 1454
+        width: 533.30615
+        height: 574.4934
+      alignment: 9
+      pivot: {x: 0.48529857, y: 0.49870023}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_2
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 1894
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_3
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 827
+        width: 519
+        height: 1179
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_4
+      rect:
+        serializedVersion: 2
+        x: 1608.6589
+        y: 842.0001
+        width: 432.35852
+        height: 1155.2944
+      alignment: 9
+      pivot: {x: 0.51193875, y: 0.505066}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_5
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1548
+        width: 238
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_6
+      rect:
+        serializedVersion: 2
+        x: 131.72205
+        y: 547.91693
+        width: 289.27795
+        height: 497.08307
+      alignment: 9
+      pivot: {x: 0.5056658, y: 0.49505422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_7
+      rect:
+        serializedVersion: 2
+        x: 113.124016
+        y: 1018.806
+        width: 609.36633
+        height: 435.10608
+      alignment: 9
+      pivot: {x: 0.49621376, y: 0.4520598}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_8
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 551
+        width: 311
+        height: 463
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_9
+      rect:
+        serializedVersion: 2
+        x: 73.54707
+        y: 0
+        width: 281.2978
+        height: 557
+      alignment: 9
+      pivot: {x: 0.486861, y: 0.49551168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_10
+      rect:
+        serializedVersion: 2
+        x: 470.4183
+        y: 0
+        width: 379.01755
+        height: 551.10895
+      alignment: 9
+      pivot: {x: 0.4738084, y: 0.48992127}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_11
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 422
+        width: 272
+        height: 376
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_12
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 463
+        width: 254
+        height: 359
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_13
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 52
+        width: 37
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_14
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 10.999985
+        width: 179
+        height: 411
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestKnight_15
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 25
+        width: 181
+        height: 412
+      alignment: 9
+      pivot: {x: 0.50276244, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 98237861383714
+  assetBundleName: 
+  assetBundleVariant: 
