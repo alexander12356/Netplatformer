@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c0f38e31292634141aa50b8e4481f924
-timeCreated: 1498990854
+timeCreated: 1499431796
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -175,12 +175,12 @@ TextureImporter:
       name: TestKnight_6
       rect:
         serializedVersion: 2
-        x: 131.72205
+        x: 137.5977
         y: 547.91693
-        width: 289.27795
+        width: 282.42303
         height: 497.08307
       alignment: 9
-      pivot: {x: 0.5056658, y: 0.49505422}
+      pivot: {x: 0.49713472, y: 0.49505422}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -188,12 +188,12 @@ TextureImporter:
       name: TestKnight_7
       rect:
         serializedVersion: 2
-        x: 113.124016
-        y: 1018.806
-        width: 609.36633
-        height: 435.10608
+        x: 155.33206
+        y: 1034.9868
+        width: 538.6924
+        height: 411.0725
       alignment: 9
-      pivot: {x: 0.49621376, y: 0.4520598}
+      pivot: {x: 0.48296195, y: 0.43912736}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -201,12 +201,12 @@ TextureImporter:
       name: TestKnight_8
       rect:
         serializedVersion: 2
-        x: 439
-        y: 551
-        width: 311
-        height: 463
+        x: 444.98444
+        y: 553.5102
+        width: 300.74097
+        height: 459.68933
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.49715728, y: 0.4981404}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -214,12 +214,12 @@ TextureImporter:
       name: TestKnight_9
       rect:
         serializedVersion: 2
-        x: 73.54707
-        y: 0
-        width: 281.2978
-        height: 557
+        x: 79.03362
+        y: 1.5839357
+        width: 262.5136
+        height: 537.859
       alignment: 9
-      pivot: {x: 0.486861, y: 0.49551168}
+      pivot: {x: 0.5007983, y: 0.5102008}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -227,12 +227,12 @@ TextureImporter:
       name: TestKnight_10
       rect:
         serializedVersion: 2
-        x: 470.4183
-        y: 0
-        width: 379.01755
-        height: 551.10895
+        x: 479.66498
+        y: 1.5142822
+        width: 345.88513
+        height: 531.1375
       alignment: 9
-      pivot: {x: 0.4738084, y: 0.48992127}
+      pivot: {x: 0.49246126, y: 0.5054919}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -240,12 +240,12 @@ TextureImporter:
       name: TestKnight_11
       rect:
         serializedVersion: 2
-        x: 846
-        y: 422
-        width: 272
-        height: 376
+        x: 844.7744
+        y: 426.06573
+        width: 265.87207
+        height: 372.77063
       alignment: 9
-      pivot: {x: 0.5, y: 0.49999997}
+      pivot: {x: 0.5161339, y: 0.4934248}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -253,12 +253,12 @@ TextureImporter:
       name: TestKnight_12
       rect:
         serializedVersion: 2
-        x: 1143
-        y: 463
-        width: 254
-        height: 359
+        x: 1177.0667
+        y: 463.5966
+        width: 220.52979
+        height: 340.9968
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.4214095, y: 0.52464837}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -279,12 +279,12 @@ TextureImporter:
       name: TestKnight_14
       rect:
         serializedVersion: 2
-        x: 879
-        y: 10.999985
-        width: 179
-        height: 411
+        x: 881.31616
+        y: 15.858131
+        width: 172.74829
+        height: 405.33218
       alignment: 9
-      pivot: {x: 0.5, y: 0.50000006}
+      pivot: {x: 0.50468713, y: 0.49500602}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -292,17 +292,17 @@ TextureImporter:
       name: TestKnight_15
       rect:
         serializedVersion: 2
-        x: 1225
-        y: 25
-        width: 181
-        height: 412
+        x: 1225.9879
+        y: 25.987871
+        width: 175.07275
+        height: 409.03638
       alignment: 9
-      pivot: {x: 0.50276244, y: 0.5}
+      pivot: {x: 0.514141, y: 0.5012076}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     outline: []
   spritePackingTag: 
-  userData: 98237861383714
+  userData: 98266752788668
   assetBundleName: 
   assetBundleVariant: 
